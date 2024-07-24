@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Register Here</title>
+<link rel="stylesheet" href="/style.css">
+</head>
+<body><div class="background"></div>
+    <div class="container">
+        <h1 >Register Here</h1>
+        <div class="form-container">
+            <form th:action="@{/regstatus}" method="POST" th:object="${admin}">
+                <label for="name">Enter Your Name</label>
+                <input type="text" placeholder="Enter name" name="name" th:field="*{name}">
+                <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
+
+                <label for="username">Enter Your username</label>
+                <input type="text" placeholder="Enter username" name="username" th:field="*{username}">
+                <span th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></span>
+
+                <label for="password">Enter Your password</label>
+                <input type="password" placeholder="Enter password" name="password" th:field="*{password}">
+                <span th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></span>
+
+                <label for="confPassword">Confirm Your password</label>
+                <input type="password" placeholder="Confirm password" name="confPassword" th:field="*{confPassword}">
+				<span th:if="${error}" th:text="${error}"></span>
+				
+                <label for="email">Enter Your email</label>
+                <input type="email" placeholder="Enter emailid" name="email" th:field="*{email}">
+
+                <label for="birthdate">Enter Your birthdate</label>
+                <input type="date" name="birthdate" th:field="*{birthdate}">
+
+                <input type="submit">
+                
+                <a th:href="@{/loginForm}">Already User? Login Here</a>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

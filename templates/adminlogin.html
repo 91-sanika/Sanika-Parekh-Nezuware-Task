@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Login Here</title>
+<link rel="stylesheet" href="/adminstyle.css">
+</head>
+<body>
+<div class="background"></div>
+    <div class="container fade-in">
+        <h1>Login Here</h1>
+        <div class="form-container bounce-in">
+            <form th:action="@{/dashboard}" method="POST" th:object="${adminlog}">
+                <label for="username">Enter Username</label>
+                <input type="text" name="username" placeholder="Enter username" th:field="*{username}">
+                <span th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></span>
+                <br><br>
+
+                <label for="password">Enter Password</label>
+                <input type="password" name="password" placeholder="Enter password" th:field="*{password}">
+                <span th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></span>
+                <br><br>
+
+                <input type="submit">
+            </form>
+        	<div th:if="${error}" th:text="${error}"></div>
+            <a href="/">New User? Register Here</a>
+        </div>
+        
+        <div>
+            <input type="checkbox" id="rememberMe" name="rememberMe">
+            <label for="rememberMe">Remember Me</label>
+        </div>
+        <div>
+            <a href="/forgotPassword">Forgot Password?</a>
+        </div>
+    </div>
+</body>
+</html>

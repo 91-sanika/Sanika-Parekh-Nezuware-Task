@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link rel="stylesheet" href="/style.css">
+</head>
+
+<body><div class="background"></div>
+<div class="container">
+	<h1> Add Menu </h1>
+
+<div class="form-container">
+<form th:action="@{/status}" th:object="${menu}" method="post">
+
+<label for="Menu_name">Menu Name</label>
+<input type="text" placeholder="Enter Menu" name="Menu_name" th:field"*{Menu_name}"required>
+
+<label for="price">Price</label>
+<input type="text" placeholder="Enter Price" name="price" th:field"*{price}"required>
+
+<label for="quantity">Quantity</label>
+<input type="text" placeholder="Enter Quantity" name="quantity" th:field"*{quantity}"required>
+
+
+
+<input type="submit">
+
+</form>
+<a id="cancelForm" href="/menulist">Cancel</a>
+</div>
+</div>
+</body>
+</html>
